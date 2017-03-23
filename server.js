@@ -50,9 +50,9 @@ db.once("open", function() {
 // routes
 
 app.get("/scrape", function(req, res) {
-  request("http://reddit.com/", function(error, reponse, html) {
+  request("https://www.reddit.com/r/javascript/", function(error, reponse, html) {
     var $ = cheerio.load(html);
-    $("article h2").each(function(i, element) {
+    $("article P").each(function(i, element) {
       var result = {};
 
       result.title = $(this).children("a").text();
